@@ -8,7 +8,8 @@
   --color-shadow: rgba(242, 182, 107, 0.08);
   --shadow-soft: 0 16px 36px rgba(226, 159, 72, 0.12);
   --radius-pill: 999px;
-  --font-body: "Segoe UI", "Trebuchet MS", sans-serif;
+  --font-body: "Nunito", system-ui, "Segoe UI", sans-serif;
+  --font-display: "Baloo 2", "Nunito", system-ui, sans-serif;
 }
 
 *,
@@ -27,6 +28,29 @@ body {
   font-family: var(--font-body);
   color: var(--color-ink);
   background: #fffdf9;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Rounded display font for headings, CTAs and badges */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.button,
+.icon-badge,
+.uses-kicker {
+  font-family: var(--font-display);
+  letter-spacing: -0.005em;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.18;
 }
 
 img {
@@ -971,7 +995,6 @@ button {
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0.01em;
-  white-space: nowrap;
 }
 
 .products-hero p {
@@ -4113,11 +4136,24 @@ button {
     display: none;
   }
 
+  .cart__list {
+    overflow: visible;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
   .cart-item {
     position: relative;
     grid-template-columns: 1fr;
     gap: 0.75rem;
-    padding: 18px;
+    margin-bottom: 14px;
+    padding: 16px;
+    border: 1px solid rgba(239, 171, 84, 0.24);
+    border-radius: 18px;
+    background: rgba(255, 253, 249, 0.96);
+    box-shadow: 0 10px 24px rgba(224, 157, 76, 0.08);
   }
 
   .cart-item__product {
@@ -4130,6 +4166,9 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed rgba(214, 158, 86, 0.26);
     text-align: left;
   }
 
@@ -4148,6 +4187,14 @@ button {
     right: 14px;
   }
 
+  .cart__list-foot {
+    padding: 4px 2px 0;
+  }
+
+  .cart__continue {
+    min-height: 44px;
+  }
+
   .page-cta__inner {
     flex-direction: column;
     align-items: flex-start;
@@ -4158,6 +4205,42 @@ button {
   .process__grid,
   .dishes__grid {
     grid-template-columns: 1fr;
+  }
+
+  .cart-summary {
+    padding: 20px 16px;
+  }
+
+  .cart-summary__checkout,
+  .cart-empty .button {
+    width: 100%;
+  }
+
+  .cart-empty {
+    padding: clamp(2rem, 8vw, 3rem) 1.1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .cart-item {
+    padding: 14px;
+  }
+
+  .cart-item__media {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cart-coupon {
+    flex-wrap: wrap;
+  }
+
+  .cart-coupon input {
+    flex: 1 1 100%;
+  }
+
+  .cart-coupon__apply {
+    flex: 1 1 100%;
   }
 }
 
