@@ -1,0 +1,9 @@
+<svg width="236" height="82" viewBox="0 0 236 82" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(3 6)">
+    <circle cx="31" cy="18" r="15.5" fill="#FFAA24" stroke="#66605A" stroke-width="3"/>
+    <path d="M2.5 36.5C2.5 25.454 11.454 16.5 22.5 16.5H39.5C50.546 16.5 59.5 25.454 59.5 36.5V38C59.5 43.799 54.799 48.5 49 48.5H13C7.201 48.5 2.5 43.799 2.5 38V36.5Z" fill="#FFFDF9" stroke="#66605A" stroke-width="3"/>
+    <path d="M12.5 37.2C12.5 30.983 17.539 25.943 23.756 25.943H38.244C44.461 25.943 49.5 30.983 49.5 37.2V38.2H12.5V37.2Z" fill="#FFAA24"/>
+  </g>
+  <text x="74" y="33" fill="#211A16" font-family="Arial Black, Arial, sans-serif" font-size="23" font-weight="900" letter-spacing="0.4">LOREM</text>
+  <text x="74" y="61" fill="#211A16" font-family="Arial Black, Arial, sans-serif" font-size="23" font-weight="900" letter-spacing="0.4">ISSUM</text>
+</svg>
