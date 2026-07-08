@@ -10,6 +10,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -29,19 +33,19 @@
             <ul class="topbar__features" aria-label="Điểm nổi bật">
               <li class="topbar__feature">
                 <span class="icon-badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 3c-3.31 0-6 4.48-6 9a6 6 0 0 0 12 0c0-4.52-2.69-9-6-9z" /></svg>
+                  <i class="fa-solid fa-egg"></i>
                 </span>
                 <span>100% trứng muối thật</span>
               </li>
               <li class="topbar__feature">
                 <span class="icon-badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M6.05 8.05c-2.73 2.73-2.73 7.15-.02 9.88 1.47-3.4 4.09-6.24 7.36-7.93-2.77 2.34-4.71 5.61-5.39 9.32 2.6 1.23 5.8.78 7.95-1.37C19.43 14.47 20 4 20 4S9.53 4.57 6.05 8.05z" /></svg>
+                  <i class="fa-solid fa-leaf"></i>
                 </span>
                 <span>Không chất bảo quản</span>
               </li>
               <li class="topbar__feature">
                 <span class="icon-badge" aria-hidden="true">
-                  <svg viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" /></svg>
+                  <i class="fa-solid fa-shield-halved"></i>
                 </span>
                 <span>An toàn - Thơm ngon</span>
               </li>
@@ -62,9 +66,7 @@
 
           <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" data-menu-toggle>
             <span class="sr-only">Mở menu</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 6.75h16v1.5H4Zm0 4.5h16v1.5H4Zm0 4.5h16v1.5H4Z" />
-            </svg>
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
           </button>
 
           <nav class="nav" id="primary-navigation" aria-label="Điều hướng chính">
@@ -131,9 +133,7 @@
           <div class="contact__cards" aria-label="Thông tin liên hệ">
             <article class="contact-card">
               <span class="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M6.5 4.75h3l1.5 3.75-2 1.25a10 10 0 0 0 4.5 4.5l1.25-2 3.75 1.5v3a1.5 1.5 0 0 1-1.6 1.5C10.5 22.75 5.25 17.5 5 8.35a1.5 1.5 0 0 1 1.5-1.6Z" />
-                </svg>
+                <i class="fa-solid fa-phone"></i>
               </span>
               <div>
                 <h3>Hotline</h3>
@@ -143,10 +143,7 @@
 
             <article class="contact-card">
               <span class="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M4.75 5.75h14.5v12.5H4.75z" />
-                  <path d="m5.5 6.5 6.5 5.25L18.5 6.5" />
-                </svg>
+                <i class="fa-solid fa-envelope"></i>
               </span>
               <div>
                 <h3>Email</h3>
@@ -156,10 +153,7 @@
 
             <article class="contact-card">
               <span class="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 20.25s6.25-4.82 6.25-10.15A6.25 6.25 0 0 0 5.75 10.1C5.75 15.43 12 20.25 12 20.25Z" />
-                  <circle cx="12" cy="10.25" r="2.1" />
-                </svg>
+                <i class="fa-solid fa-location-dot"></i>
               </span>
               <div>
                 <h3>Địa chỉ</h3>
@@ -169,10 +163,7 @@
 
             <article class="contact-card">
               <span class="contact-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="8" />
-                  <path d="M12 8v4l2.75 1.75" />
-                </svg>
+                <i class="fa-solid fa-clock"></i>
               </span>
               <div>
                 <h3>Giờ làm việc</h3>
@@ -188,10 +179,7 @@
           <div class="map-card">
             <div class="map-card__grid" aria-hidden="true"></div>
             <div class="map-card__pin" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.25s6.25-4.82 6.25-10.15A6.25 6.25 0 0 0 5.75 10.1C5.75 15.43 12 20.25 12 20.25Z" />
-                <circle cx="12" cy="10.25" r="2.1" />
-              </svg>
+              <i class="fa-solid fa-location-dot"></i>
             </div>
             <div class="map-card__label">
               <strong>Lorem Issum Store</strong>
@@ -213,9 +201,9 @@
             placerat lorem vitae mauris facilisis.
           </p>
           <div class="footer__socials" aria-label="Mạng xã hội">
-            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8.5h2V5h-2.7c-3 0-4.3 1.8-4.3 4.2v2.1H6v3.6h3V21h3.8v-6.1h2.7l.5-3.6h-3.2V9.5c0-.7.3-1 1.2-1Z" /></svg></a>
-            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7.5 3.75h9A3.75 3.75 0 0 1 20.25 7.5v9a3.75 3.75 0 0 1-3.75 3.75h-9A3.75 3.75 0 0 1 3.75 16.5v-9A3.75 3.75 0 0 1 7.5 3.75Zm4.5 4.5A3.75 3.75 0 1 0 12 15.75 3.75 3.75 0 0 0 12 8.25Zm5.2-.75a.7.7 0 1 0 0 1.4.7.7 0 0 0 0-1.4Z" /></svg></a>
-            <a href="#" aria-label="Video"><svg viewBox="0 0 24 24"><path d="M20.25 8.75a2.5 2.5 0 0 0-2.5-2.5H6.25a2.5 2.5 0 0 0-2.5 2.5v6.5a2.5 2.5 0 0 0 2.5 2.5h11.5a2.5 2.5 0 0 0 2.5-2.5v-6.5Zm-9.5 6.1v-5.7l5 2.85-5 2.85Z" /></svg></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Video"><i class="fa-brands fa-youtube"></i></a>
           </div>
         </div>
 

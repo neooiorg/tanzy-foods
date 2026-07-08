@@ -3,14 +3,88 @@ const menuToggle = document.querySelector("[data-menu-toggle]");
 const navigation = document.querySelector("#primary-navigation");
 
 if (header && menuToggle && navigation) {
+  const body = document.body;
+  const brand = header.querySelector(".brand");
+  const menuToggleLabel = menuToggle.querySelector(".sr-only");
+  const menuToggleIcon = menuToggle.querySelector("i");
+  const mobileBreakpoint = 980;
+  let scrollPosition = 0;
+
+  if (brand && !navigation.querySelector(".nav__mobile-head")) {
+    const mobileHead = document.createElement("div");
+    const mobileBrand = brand.cloneNode(true);
+    const mobileCloseButton = document.createElement("button");
+
+    mobileHead.className = "nav__mobile-head";
+
+    mobileBrand.classList.remove("brand");
+    mobileBrand.classList.add("nav__mobile-brand");
+
+    mobileCloseButton.className = "nav__close";
+    mobileCloseButton.type = "button";
+    mobileCloseButton.setAttribute("aria-label", "Đóng menu");
+    mobileCloseButton.setAttribute("data-menu-close", "");
+    mobileCloseButton.innerHTML =
+      '<i class="fa-solid fa-xmark" aria-hidden="true"></i><span class="sr-only">Đóng menu</span>';
+
+    mobileHead.append(mobileBrand, mobileCloseButton);
+    navigation.prepend(mobileHead);
+  }
+
+  const menuCloseButton = navigation.querySelector("[data-menu-close]");
+
+  const isMobileMenu = () => window.innerWidth <= mobileBreakpoint;
+
+  const syncToggleState = (isOpen) => {
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+    if (menuToggleLabel) {
+      menuToggleLabel.textContent = isOpen ? "Đóng menu" : "Mở menu";
+    }
+
+    if (menuToggleIcon) {
+      menuToggleIcon.classList.toggle("fa-bars", !isOpen);
+      menuToggleIcon.classList.toggle("fa-xmark", isOpen);
+    }
+  };
+
+  const lockScroll = () => {
+    if (body.classList.contains("menu-locked")) {
+      return;
+    }
+
+    scrollPosition = window.scrollY;
+    body.classList.add("menu-locked");
+    body.style.top = `-${scrollPosition}px`;
+  };
+
+  const unlockScroll = () => {
+    if (!body.classList.contains("menu-locked")) {
+      return;
+    }
+
+    body.classList.remove("menu-locked");
+    body.style.top = "";
+    window.scrollTo(0, scrollPosition);
+  };
+
   const closeMenu = () => {
     header.classList.remove("is-menu-open");
-    menuToggle.setAttribute("aria-expanded", "false");
+    syncToggleState(false);
+    unlockScroll();
   };
 
   const openMenu = () => {
     header.classList.add("is-menu-open");
-    menuToggle.setAttribute("aria-expanded", "true");
+    syncToggleState(true);
+
+    if (isMobileMenu()) {
+      lockScroll();
+
+      if (menuCloseButton) {
+        requestAnimationFrame(() => menuCloseButton.focus());
+      }
+    }
   };
 
   menuToggle.addEventListener("click", () => {
@@ -23,19 +97,48 @@ if (header && menuToggle && navigation) {
     openMenu();
   });
 
+  if (menuCloseButton) {
+    menuCloseButton.addEventListener("click", () => {
+      closeMenu();
+      menuToggle.focus();
+    });
+  }
+
   navigation.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      if (window.innerWidth <= 940) {
+      if (isMobileMenu()) {
         closeMenu();
       }
     });
   });
 
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 940) {
+  document.addEventListener("click", (event) => {
+    if (!isMobileMenu() || !header.classList.contains("is-menu-open")) {
+      return;
+    }
+
+    const target = event.target;
+
+    if (navigation.contains(target) || menuToggle.contains(target)) {
+      return;
+    }
+
+    closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && header.classList.contains("is-menu-open")) {
       closeMenu();
     }
   });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > mobileBreakpoint) {
+      closeMenu();
+    }
+  });
+
+  syncToggleState(false);
 }
 
 const gallery = document.querySelector("[data-gallery]");
