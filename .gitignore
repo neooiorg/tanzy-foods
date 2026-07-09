@@ -1,0 +1,18 @@
+# Tooling / local agent dirs
+.agents/
+.codex/
+.impeccable/
+skills-lock.json
+
+# Editor
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log*
+
+# One-off dev scripts
+replace.js
+remove_link.js

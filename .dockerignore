@@ -1,0 +1,11 @@
+.git
+.github
+.agents
+.codex
+.impeccable
+.vscode
+*.md
+replace.js
+remove_link.js
+skills-lock.json
+node_modules
